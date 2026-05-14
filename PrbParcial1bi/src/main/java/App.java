@@ -1,6 +1,5 @@
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static java.lang.String.join;
 
 public class App {
     static class BuscarFila implements Runnable {

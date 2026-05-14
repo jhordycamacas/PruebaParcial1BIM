@@ -17,7 +17,7 @@ public class App {
 
         @Override
         public void run() {
-            int contadorLocal = 1;
+            int contadorLocal = 0;
             for (String elemento : fila) {
                 if (elemento.equalsIgnoreCase(palabra)) {
                     contadorLocal++;

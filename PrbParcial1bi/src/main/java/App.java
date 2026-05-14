@@ -63,4 +63,4 @@ public class App {
         System.out.printf("Resultado final: La plabra Java aparece %d veces",  contadorGlobal.get());
 
         ;}
-}//compareTo para comparar cadenas
+}

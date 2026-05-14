@@ -3,13 +3,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static java.lang.String.join;
 
 public class App {
-    static class BuscadorFila implements Runnable {
+    static class BuscarFila implements Runnable {
         private String[] fila;
         private String palabra;
         private int numeroFila;
         private AtomicInteger contadorGlobal;
 
-        public BuscadorFila(String[] fila, String palabra, int numeroFila, AtomicInteger contadorGlobal) {
+        public BuscarFila(String[] fila, String palabra, int numeroFila, AtomicInteger contadorGlobal) {
             this.fila = fila;
             this.palabra = palabra;
             this.numeroFila = numeroFila;
@@ -25,7 +25,7 @@ public class App {
                 }
             }
             contadorGlobal.addAndGet(contadorLocal);
-            System.out.println("Hilo-" + numeroFila + " finalizado. Encontrados: " + contadorLocal);
+            System.out.printf("Hilo-%d finalizado. Encontrados: %d \n", numeroFila, contadorLocal);
         }
     }
 
@@ -37,15 +37,15 @@ public class App {
                 {"Java", "Rust",   "Java"}
         };
 
-        String palabraBuscada = "Java";
+        String encontrar = "Java";
         AtomicInteger contadorGlobal = new AtomicInteger(0);
 
-        System.out.println("Iniciando búsqueda concurrente del término: \"" + palabraBuscada + "\"");
+        System.out.printf("Iniciando búsqueda concurrente del término: \"%s\"\n", encontrar);
 
 
         Thread[] hilos = new Thread[matriz.length];
         for (int i = 0; i < matriz.length; i++) {
-            BuscadorFila tarea = new BuscadorFila(matriz[i], palabraBuscada, i, contadorGlobal);
+            BuscarFila tarea = new BuscarFila(matriz[i], encontrar, i, contadorGlobal);
             hilos[i] = new Thread(tarea);
             hilos[i].start();
         }

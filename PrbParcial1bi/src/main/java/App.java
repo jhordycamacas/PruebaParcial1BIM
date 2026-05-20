@@ -17,7 +17,7 @@ public class App {
 
         @Override
         public void run() {
-            int contadorLocal = 1;
+            int contadorLocal = 0;
             for (String elemento : fila) {
                 if (elemento.equalsIgnoreCase(palabra)) {
                     contadorLocal++;
@@ -63,4 +63,4 @@ public class App {
         System.out.printf("Resultado final: La plabra Java aparece %d veces",  contadorGlobal.get());
 
         ;}
-}//compareTo para comparar cadenas
+}
